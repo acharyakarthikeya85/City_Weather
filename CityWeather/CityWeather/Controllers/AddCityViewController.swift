@@ -25,7 +25,8 @@ class AddCityViewController : UIViewController {
     
     @IBAction func addCityToList(_ sender: Any) {
         if let city = self.cityName.text {
-            let weatherUrl = URL(string:"https://api.openweathermap.org/data/2.5/weather?q=\(city)&APPID=400ef776a23fd2fefdb2406c7142f3d1&units=imperial")!
+            //Get your own api key from open weather map api.
+            let weatherUrl = URL(string:"https://api.openweathermap.org/data/2.5/weather?q=\(city)&APPID=your api key here&units=imperial")!
             let weatherResource = Resource<WeatherViewModel>(url: weatherUrl){ responseData in
                     let weatherVM = try? JSONDecoder().decode(WeatherViewModel.self, from: responseData)
                     return weatherVM
